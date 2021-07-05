@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import icon from './../assets/images/icon_baseball_cloud.png'
+import {useState} from "react";
 
 export function Header() {
+    const [isOpen, setIsOpen] = useState(false)
+    const toggle = () => {
+        setIsOpen(!isOpen)
+    }
     return (
         <HeaderBlock>
             <Icon href={'#'}>
@@ -22,14 +27,15 @@ export function Header() {
                                     <UserPhoto />
                                 </a>
                             </ImageBox>
-                            <Button>
+                            <Button onClick={toggle}>
                                 Dmitriy Kryhtin &#9660;
                             </Button>
                         </UserDiv>
-                        <DropdownPanel>
+                        {isOpen
+                        && <DropdownPanel>
                             <Ref>My profile</Ref>
                             <Ref>Log out</Ref>
-                        </DropdownPanel>
+                        </DropdownPanel>}
                     </DropdownSimple>
                 </GroupElement>
             </NavBar>
