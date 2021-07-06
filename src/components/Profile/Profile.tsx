@@ -1,10 +1,15 @@
 import styled from "styled-components";
+import {ProfileInfoView} from "./ProfileInfoView";
+import {ProfileInfoMain} from "./ProfileInfoMain";
+import {useState} from "react";
 
 export function Profile() {
+    const [isEditMode, setIsEditMode] = useState(false)
     return (
         <ProfileBlock>
             <MainContainer>
-
+                <ProfileInfoView />
+                <ProfileInfoMain />
             </MainContainer>
         </ProfileBlock>
     )
