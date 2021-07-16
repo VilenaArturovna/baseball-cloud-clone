@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import {useState} from "react";
+import React from "react";
+
 
 type ActiveTabValuesType = "Batting" | "Comparison" | "Session Reports"
 type BattingValuesType = "Summary" | "Charts" | "Log"
@@ -13,7 +15,7 @@ export function ProfileInfoMain() {
     const [battingTab, setBattingTab] = useState<BattingValuesType>("Summary")
     const onActiveBatting = () => setActiveTab("Batting")
     const onActiveComparison = () => setActiveTab("Comparison")
-    const onActiveSessionReports = () => setActiveTab("Session Reports")
+    //const onActiveSessionReports = () => setActiveTab("Session Reports")
     const onActiveBattingSummary = () => setBattingTab("Summary")
     const onActiveBattingCharts = () => setBattingTab("Charts")
     const onActiveBattingLog = () => setBattingTab("Log")
@@ -59,59 +61,61 @@ export function ProfileInfoMain() {
                         <TablePanel>
                             {activeTab === "Batting"
                             && battingTab === "Summary"
-                            ? <div>
-                                <DivFlexDirectionColumn>
-                                    <TableSection>
-                                        <TableSectionHeading>
-                                            Top Batting Values
-                                        </TableSectionHeading>
-                                        <DivFlexDirectionColumn>
-                                            <DivFlex>
-                                                <TableSectionHeader>
-                                                    <TableCol><TableColTitle>Pitch Type</TableColTitle></TableCol>
-                                                    <TableCol><TableColTitle>Distance</TableColTitle></TableCol>
-                                                    <TableCol><TableColTitle>Launch Angle</TableColTitle></TableCol>
-                                                    <TableCol><TableColTitle>Exit Velocity</TableColTitle></TableCol>
-                                                </TableSectionHeader>
-                                            </DivFlex>
-                                        </DivFlexDirectionColumn>
-                                        <TableBody>
-                                            <TableRow>
-                                                <TableColBatting><TableColTitle>Fastball</TableColTitle></TableColBatting>
-                                                <TableColBatting><TableColTitle>268</TableColTitle></TableColBatting>
-                                                <TableColBatting><TableColTitle>52</TableColTitle></TableColBatting>
-                                                <TableColBatting><TableColTitle>88</TableColTitle></TableColBatting>
-                                            </TableRow>
-                                        </TableBody>
-                                    </TableSection>
-                                </DivFlexDirectionColumn>
-                                <DivFlexDirectionColumn>
-                                    <TableSection>
-                                        <TableSectionHeading>
-                                            Average Batting Values
-                                        </TableSectionHeading>
-                                        <DivFlexDirectionColumn>
-                                            <DivFlex>
-                                                <TableSectionHeader>
-                                                    <TableCol><TableColTitle>Pitch Type</TableColTitle></TableCol>
-                                                    <TableCol><TableColTitle>Distance</TableColTitle></TableCol>
-                                                    <TableCol><TableColTitle>Launch Angle</TableColTitle></TableCol>
-                                                    <TableCol><TableColTitle>Exit Velocity</TableColTitle></TableCol>
-                                                </TableSectionHeader>
-                                            </DivFlex>
-                                        </DivFlexDirectionColumn>
-                                        <TableBody>
-                                            <TableRow>
-                                                <TableColBatting><TableColTitle>Fastball</TableColTitle></TableColBatting>
-                                                <TableColBatting><TableColTitle>268</TableColTitle></TableColBatting>
-                                                <TableColBatting><TableColTitle>52</TableColTitle></TableColBatting>
-                                                <TableColBatting><TableColTitle>88</TableColTitle></TableColBatting>
-                                            </TableRow>
-                                        </TableBody>
-                                    </TableSection>
-                                </DivFlexDirectionColumn>
-                            </div>
-                            : <EmptyField>There's no info yet!</EmptyField>}
+                                ? <div>
+                                    <DivFlexDirectionColumn>
+                                        <TableSection>
+                                            <TableSectionHeading>
+                                                Top Batting Values
+                                            </TableSectionHeading>
+                                            <DivFlexDirectionColumn>
+                                                <DivFlex>
+                                                    <TableSectionHeader>
+                                                        <TableCol><TableColTitle>Pitch Type</TableColTitle></TableCol>
+                                                        <TableCol><TableColTitle>Distance</TableColTitle></TableCol>
+                                                        <TableCol><TableColTitle>Launch Angle</TableColTitle></TableCol>
+                                                        <TableCol><TableColTitle>Exit
+                                                            Velocity</TableColTitle></TableCol>
+                                                    </TableSectionHeader>
+                                                </DivFlex>
+                                            </DivFlexDirectionColumn>
+                                            <TableBody>
+                                                <TableRow>
+                                                    <TableColBatting><TableColTitle>Fastball</TableColTitle></TableColBatting>
+                                                    <TableColBatting><TableColTitle>268</TableColTitle></TableColBatting>
+                                                    <TableColBatting><TableColTitle>52</TableColTitle></TableColBatting>
+                                                    <TableColBatting><TableColTitle>88</TableColTitle></TableColBatting>
+                                                </TableRow>
+                                            </TableBody>
+                                        </TableSection>
+                                    </DivFlexDirectionColumn>
+                                    <DivFlexDirectionColumn>
+                                        <TableSection>
+                                            <TableSectionHeading>
+                                                Average Batting Values
+                                            </TableSectionHeading>
+                                            <DivFlexDirectionColumn>
+                                                <DivFlex>
+                                                    <TableSectionHeader>
+                                                        <TableCol><TableColTitle>Pitch Type</TableColTitle></TableCol>
+                                                        <TableCol><TableColTitle>Distance</TableColTitle></TableCol>
+                                                        <TableCol><TableColTitle>Launch Angle</TableColTitle></TableCol>
+                                                        <TableCol><TableColTitle>Exit
+                                                            Velocity</TableColTitle></TableCol>
+                                                    </TableSectionHeader>
+                                                </DivFlex>
+                                            </DivFlexDirectionColumn>
+                                            <TableBody>
+                                                <TableRow>
+                                                    <TableColBatting><TableColTitle>Fastball</TableColTitle></TableColBatting>
+                                                    <TableColBatting><TableColTitle>268</TableColTitle></TableColBatting>
+                                                    <TableColBatting><TableColTitle>52</TableColTitle></TableColBatting>
+                                                    <TableColBatting><TableColTitle>88</TableColTitle></TableColBatting>
+                                                </TableRow>
+                                            </TableBody>
+                                        </TableSection>
+                                    </DivFlexDirectionColumn>
+                                </div>
+                                : <EmptyField>There&apos;s no info yet!</EmptyField>}
                         </TablePanel>
                     </Table>
                 </Card>
@@ -278,7 +282,6 @@ const TableCol = styled.div`
   line-height: 1;
   font-weight: 300;
   color: #667784;
-  background: #fff;
   width: 194px;
   -webkit-flex: 1 0 194px;
   -ms-flex: 1 0 194px;
@@ -317,6 +320,12 @@ const TableRow = styled.div`
   background-color: #f7f8f9;
   min-height: 44px;
   margin-bottom: 4px;
+
+  &:hover {
+    background-color: #b3d4fc;
+    color: #000;
+    text-shadow: none;
+  }
 `
 const TableColBatting = styled(TableCol)`
   color: #414f5a;

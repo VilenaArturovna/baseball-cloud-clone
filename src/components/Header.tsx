@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import icon from './../assets/images/icon_baseball_cloud.png'
+import icon from '../assets/images/icon_baseball_cloud.png';
+import avatar from '../assets/images/logo192.png';
 import {useState} from "react";
+import React from "react";
 
 export function Header() {
     const [isOpen, setIsOpen] = useState(false)
@@ -24,7 +26,7 @@ export function Header() {
                         <UserDiv>
                             <ImageBox>
                                 <a href={'#'}>
-                                    <UserPhoto />
+                                    <UserPhoto src={avatar} alt={"avatar"}/>
                                 </a>
                             </ImageBox>
                             <Button onClick={toggle}>
@@ -50,10 +52,10 @@ const HeaderBlock = styled.header`
   align-items: center;
   padding: 8px;
   background: #fff;
-  background: var(--primaryColor,#fff);
+  background: var(--primaryColor, #fff);
   justify-content: space-between;
   flex-wrap: wrap;
-  border-bottom: 1px solid rgba(0,0,0,.1);
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
 `
 const Icon = styled.a`
   color: #337ab7;
@@ -78,8 +80,8 @@ const Nav = styled.nav`
 `
 const NavItem = styled.a`
   padding: 0 8px;
-  color: #788b99!important;
-  text-decoration: none!important;
+  color: #788b99 !important;
+  text-decoration: none !important;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -89,7 +91,7 @@ const NavItem = styled.a`
 `
 const DropdownSimple = styled.div`
   position: relative;
-  display: inline-block;    
+  display: inline-block;
 `
 const UserDiv = styled.div`
   display: flex;
@@ -104,12 +106,12 @@ const ImageBox = styled.div`
   overflow: hidden;
   border-radius: 50%;
 `
-const UserPhoto = styled.div`
-  background-image: url(https://baseballcloud-staging-assets.s3.amazonaws.com/profile/469/size_100_100_257e4010-3876-4bd2-a5ed-29adc1999519.jpeg);
+const UserPhoto = styled.img`
   width: 32px;
   height: 32px;
   background-size: cover;
   background-position: 50% 50%;
+  background-color: black;
 `
 const Button = styled.button`
   background-color: transparent;
@@ -127,7 +129,7 @@ const Button = styled.button`
   display: -ms-flexbox;
   display: flex;
   align-items: center;
-  color: #788b99!important;
+  color: #788b99 !important;
   cursor: pointer;
 `
 const DropdownPanel = styled.div`
@@ -146,7 +148,7 @@ const DropdownPanel = styled.div`
   display: block;
   right: -5px;
   left: inherit;
-  
+
   &:before {
     content: '';
     width: 0;
@@ -159,7 +161,7 @@ const DropdownPanel = styled.div`
     border-width: 0 8px 8px 8px;
     border-color: transparent transparent #ffffff transparent;
   }
-  
+
   &:after {
     content: '';
     width: 0;

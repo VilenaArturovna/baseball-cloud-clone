@@ -1,20 +1,31 @@
 import styled from "styled-components";
+import React from "react";
+import avatar from '../../assets/images/logo192.png';
 
-export function ProfileInfoView() {
+
+type PropsType = {
+    onEditMode: () => void
+}
+
+export function ProfileInfoView({onEditMode}: PropsType) {
     return (
         <SideBar>
             <UserInfo>
                 <Avatar>
-                    <ImageBox />
+                    <ImageBox src={avatar} alt={"avatar"}/>
                 </Avatar>
                 <UserName>
-                    <Name>
-                        Dmitriy Kryhtin
-                    </Name>
-                    <EditButton>
-                        Edit
-                    </EditButton>
+                    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                        <Name>
+                            Dmitriy Kryhtin
+                        </Name>
+                        <Base>Catcher</Base>
+                        <Base>First Base</Base>
+                    </div>
                 </UserName>
+                <EditButton onClick={onEditMode}>
+                    Edit
+                </EditButton>
             </UserInfo>
             <PersonalInfo>
                 <Item><span>Age</span><span>10</span></Item>
@@ -34,7 +45,7 @@ export function ProfileInfoView() {
             </About>
             <UserNote>few work</UserNote>
         </SideBar>
-    )
+    );
 }
 
 const SideBar = styled.aside`
@@ -48,7 +59,7 @@ const SideBar = styled.aside`
   transition: all 0.1s;
   box-shadow: 0 2px 15px 0 rgb(0 0 0 / 10%);
   background: #fff;
-  border-left: 1px solid rgba(0,0,0,.1);
+  border-left: 1px solid rgba(0, 0, 0, .1);
   width: 200px;
   overflow: auto;
   padding: 16px;
@@ -63,14 +74,14 @@ const Avatar = styled.div`
   justify-content: center;
   margin-bottom: 6px;
 `
-const ImageBox = styled.div`
+const ImageBox = styled.img`
   display: block;
   width: 100px;
   height: 100px;
   background-size: cover;
   background-position: 50% 50%;
   border-radius: 50%;
-  background-image: url(https://baseballcloud-staging-assets.s3.amazonaws.com/profile/469/size_100_100_257e4010-3876-4bd2-a5ed-29adc1999519.jpeg);
+  background-color: black;
 `
 const UserName = styled.div`
   display: flex;
@@ -84,6 +95,11 @@ const Name = styled.div`
   word-break: break-all;
   text-align: center;
 `
+const Base = styled.div`
+  font-size: 16px;
+  line-height: 19px;
+  color: #788b99;  
+`
 const EditButton = styled.button`
   border-radius: 4px;
   box-shadow: none;
@@ -94,7 +110,8 @@ const EditButton = styled.button`
   border-style: none;
   width: fit-content;
   background-color: white;
-  color: #788b99!important;
+  color: #788b99 !important;
+  align-self: flex-end;
 `
 const PersonalInfo = styled.div`
   display: flex;
@@ -119,7 +136,7 @@ const Heading = styled.div`
   font-weight: 300;
   color: #667784;
   margin-bottom: 3px;
-  text-align: left;  
+  text-align: left;
 `
 const TextBox = styled.div`
   font-size: 16px;
@@ -130,7 +147,7 @@ const TextBox = styled.div`
 const About = styled.div`
   display: flex;
   position: relative;
-  
+
   &:before {
     content: '';
     position: absolute;
